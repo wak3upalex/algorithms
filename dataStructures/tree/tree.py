@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -21,6 +24,7 @@ node_b.add_child(node_d)
 node_b.add_child(node_e)
 node_c.add_child(node_f)
 
+
 # DFS (Depth-First Search)
 def dfs(node):
     print(node.value)
@@ -29,3 +33,15 @@ def dfs(node):
 
 
 dfs(root)
+
+
+def bfs(root):
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        print(node.value)
+        for child in node.children:
+            queue.append(child)
+
+
+bfs(root)
