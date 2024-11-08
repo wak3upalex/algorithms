@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Graph:
     def __init__(self):
         self.nodes = {}
@@ -34,3 +37,20 @@ def dfs(graph, start, visited=None):
 
 
 dfs(graph, "A")
+
+
+# BFS
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            print(node)
+            visited.add(node)
+            for neighbor in graph.nodes[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
+
+bfs(graph, "A")
