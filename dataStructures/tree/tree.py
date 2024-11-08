@@ -20,3 +20,12 @@ root.add_child(node_c)
 node_b.add_child(node_d)
 node_b.add_child(node_e)
 node_c.add_child(node_f)
+
+
+def dfs(node):
+    print(node.value)
+    for child in node.children:
+        dfs(child)
+
+
+dfs(root)
